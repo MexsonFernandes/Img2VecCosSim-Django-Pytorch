@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Feature Vector | Project</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .view {
+      height: 100%;
+    }
+
+    @media (max-width: 740px) {
+      html,
+      body,
+      header,
+      .view {
+        height: 1000px;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+      html,
+      body,
+      header,
+      .view {
+        height: 650px;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="">
+        <strong>Img2VecCosSim</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Dashboard
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Full Page Intro -->
+  <div class="view full-page-intro" style="background-image: url({% static 'img/back.jpg' %}); background-repeat: no-repeat; background-size: cover;">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+
+        {% if post %}
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                    {% load static %}
+                        <img width="400px" height="250px" src="{% get_media_prefix %}{{ img1src }}">
+                </div>
+                <div class="col-sm">
+                        <h1 style="color:white;"> {{ cos_sim }} </h1>
+
+
+                </div>
+                <div class="col-sm">
+                        <img width="400px" height="250px" src="{% get_media_prefix %}{{ img2src }}">
+                </div>
+              </div>
+            </div>
+        <br/>
+
+        {% else %}
+      <!-- Content -->
+      <div class="container">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+            <h1 class="display-4 font-weight-bold">Upload photos </h1>
+
+            <hr class="hr-light">
+
+            <p>
+              <strong>Choose any two photos for checking cosine similarity</strong>
+            </p>
+
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-6 col-xl-5 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+              <!--Card content-->
+              <div class="card-body">
+
+                <!-- Form -->
+                <form name="" method="post" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <!-- Heading -->
+                  <h3 class="dark-grey-text text-center">
+                    <strong>Select photos</strong>
+                  </h3>
+                  <hr>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="image1d">1</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" required="required" accept=".png,.jpg" class="custom-file-input" id="image1" name="file1" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" id="label1" for="image1">Choose first image</label>
+                      </div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="imagsde2">2</span>
+                      </div>
+                      <div class="custom-file">
+                        <input type="file" required="required" accept=".png,.jpg" class="custom-file-input" id="image2" name="file2" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" id="label2" for="image2">Choose second image</label>
+                      </div>
+                    </div>
+
+
+                  <div class="text-center">
+                    <button class="btn btn-indigo">Upload</button>
+                  </div>
+
+                </form>
+                <!-- Form -->
+
+              </div>
+
+            </div>
+            <!--/.Card-->
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+      <!-- Content -->
+        {% endif %}
+
+    </div>
+    <!-- Mask & flexbox options-->
+
+  </div>
+  <!-- Full Page Intro -->
+
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-0 wow fadeIn">
+
+
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2018 Copyright:
+      <a href=""> RoboMex </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+    document.getElementById('image1').onchange = function () {
+        document.getElementById('label1').innerText = 'Selected file: ' + this.value.replace(/.*[\/\\]/, '');
+    };
+
+    document.getElementById('image2').onchange = function () {
+        document.getElementById('label2').innerText = 'Selected file: ' + this.value.replace(/.*[\/\\]/, '');
+    };
+  </script>
+</body>
+
+</html>
