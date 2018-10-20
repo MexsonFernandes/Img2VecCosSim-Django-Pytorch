@@ -13,26 +13,11 @@ from torch.autograd import Variable
 from PIL import Image
 from FeatureVector.settings import MEDIA_ROOT
 
-
-# Load the pretrained model
-model = models.resnet18(pretrained=True)
-# Use the model object to select the desired layer
-layer = model._modules.get('avgpool')
-# Set model to evaluation mode
-model.eval()
-# size of input data should be of 224x224 for ResNet-18
-scaler = transforms.Scale((224, 224))
-normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                 std=[0.229, 0.224, 0.225])
-to_tensor = transforms.ToTensor()
-
-
 def handle_uploaded_file(f):
     name = str(datetime.datetime.now().strftime('%H%M%S')) + str(random.randint(0, 1000)) + str(f)
     path = default_storage.save(MEDIA_ROOT + '/' + name,
                                 ContentFile(f.read()))
     return os.path.join(MEDIA_ROOT, path), name
-
 
 def index(request):
     if request.POST:
