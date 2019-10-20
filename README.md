@@ -6,5 +6,12 @@ Extract a feature vector for any image and find the cosine similarity for compar
   - Pytorch
   - Django 2.0
 
+#### Showcase:
+*Dashboard*
+![Dashboard](https://raw.githubusercontent.com/realSaddy/Img2VecCosSim-Django-Pytorch/master/dashboard.png)
+*Example Comparsion*
+![Example Comparsion](https://github.com/realSaddy/Img2VecCosSim-Django-Pytorch/blob/master/example_comparison.png?raw=true)
+
+
 #### Credits:
   - Inspired from <a href="https://becominghuman.ai/extract-a-feature-vector-for-any-image-with-pytorch-9717561d1d4c">Medium post by Christian Safka</a>
