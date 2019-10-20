@@ -9,6 +9,9 @@ Extract a feature vector for any image and find the cosine similarity for compar
 #### Showcase:
 *Dashboard*
 ![Dashboard](https://raw.githubusercontent.com/realSaddy/Img2VecCosSim-Django-Pytorch/master/dashboard.png)
+
+---
+
 *Example Comparsion*
 ![Example Comparsion](https://github.com/realSaddy/Img2VecCosSim-Django-Pytorch/blob/master/example_comparison.png?raw=true)
 
