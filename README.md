@@ -5,6 +5,24 @@ Extract a feature vector for any image and find the cosine similarity for compar
 #### Packages:
   - Pytorch
   - Django 2.0
+  
+#### How to start:
+  * Clone repository
+  
+    `git clone https://github.com/MexsonFernandes/Img2VecCosSim-Django-Pytorch`
+  * Change directory
+  
+    `cd Img2VecCosSim-Django-Pytorch`
+  * Install virtual environment
+  
+    `pipenv install`
+  * Install all dependencies
+  
+    `pipenv install -r requirements.txt` or `pip install -r requirements.txt`
+    
+  * Start django server
+  
+    `python manage.py runserver`
 
 #### Showcase:
 *Dashboard*
