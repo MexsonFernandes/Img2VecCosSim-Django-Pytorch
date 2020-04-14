@@ -1,4 +1,5 @@
 # Img2VecCosSim-Django-Pytorch
+[![HitCount](http://hits.dwyl.com/MexsonFernandes/Img2VecCosSim-Django-Pytorch.svg)](http://hits.dwyl.com/MexsonFernandes/Img2VecCosSim-Django-Pytorch)
 
 Extract a feature vector for any image and find the cosine similarity for comparison using Pytorch. I have used ResNet-18 to extract the feature vector of images. Finally a Django app is developed to input two images and to find the cosine similarity.
 
